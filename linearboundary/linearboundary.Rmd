@@ -17,13 +17,13 @@ This short write-up explains the method and mathematical background of plotting 
 
 A generalized linear model (GLM) is a type of logistic regression despite its misleading name (not to be confused with general linear models). These are performed with the glm() function in R.
 
-A GLM comprises a linear function and a link function. Using a logit link function, glms can be applied to binary output data in a multivariate model. Without polynomial factors, this produces as linear boundary.
+A GLM comprises a linear function and a link function. Using a logit link function, glms can be applied to binary output data in a multivariate model. Without polynomial factors, this produces as linear boundary. Despite the confusing name, this is a logistic regression.
 
 For a binary discrimination task, we codify one choice as 1, and the other as 0.
 
 ## Decision Boundary
 
-The logit link function is used because of the binary nature of the output data. This is what makes the model logistic. It is a sigmoid function that takes continuous input and outputs between 0 and 1.
+The logit link function is used because of the binary nature of the output data, and is what makes the model logistic. It is a sigmoid function that takes continuous input and outputs between 0 and 1.
 
 Where $h_{\theta}(x)$ represents outcome $h_{\theta}$ with input $x$, we know that:
 $$
@@ -32,7 +32,7 @@ $$
 
 When plotting a decision boundary, we want to know the point at which one classification becomes another. In other words, the point at which each outcome is equally likely, such that "above" this boundary, we predict 1, and "below" it we predict 0. This would be where $h_{\theta}(x) = 0.5$
 
-Owing to the sigmoid function, we can intuit that we are looking for line for which $z = 0$. This is because $z=0$ is where $g(z) = 0.5$. See the below image for a graphical depiction.
+Owing to the sigmoid function, we can intuit that we are looking for line for which $z = 0$. This is because $z=0$ is where $g(z) = 0.5$. See Figure 1 below for a graphical depiction.
 <center>
 
 ![Sigmoid Function, from Wikipedia](images/600px-Logistic-curve.svg.png)
