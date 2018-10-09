@@ -136,8 +136,6 @@ vowel_plot <- ggplot(vowel_data, aes(x=duration, y=f2f1)) +
 vowel_plot
 ```
 
-Of course, we still need to pretty it up with labels and titles, but this demonstrates the method.
-
 For this dataset, our decision boundary is very flat. This is expected, as we used the same input for the duration distribution, whilst changing the formants. Let's do the same with a contrast that varies on both cues.
 
 ```{r}
