@@ -100,7 +100,7 @@ $$
 \begin{aligned} x_{2} &= \frac{-\theta_0}{\theta_{2}} - \frac{\theta_{1}}{\theta_{2}}x_{1}\end{aligned}
 $$
 
-You may have noticed that this equation is in the form $y = mx + b$ - a linear equation -, or $ y=b+mx$ in this case. That means we can use our coefficients and axes to plot the linear boundary.
+You may have noticed that this equation is in the form $y = mx + b$, a linear equation, or $y=b+mx$ in this case. That means we can use our coefficients and axes to plot the linear boundary.
 
 ## Applying to glm() output
 
