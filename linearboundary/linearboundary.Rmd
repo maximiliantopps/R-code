@@ -26,7 +26,9 @@ For a binary discrimination task, we codify one choice as 1, and the other as 0.
 The logit link function is used because of the binary nature of the output data. This is what makes the model logistic. It is a sigmoid function that takes continuous input and outputs between 0 and 1.
 
 Where $h_{\theta}(x)$ represents outcome $h_{\theta}$ with input $x$, we know that:
-$$\begin{align}0 \leq h_{\theta}(x) \leq 1 \end{align}$$
+$$
+\begin{aligned}0 \leq h_{\theta}(x) \leq 1 \end{aligned}
+$$
 
 When plotting a decision boundary, we want to know the point at which one classification becomes another. In other words, the point at which each outcome is equally likely, such that "above" this boundary, we predict 1, and "below" it we predict 0. This would be where $h_{\theta}(x) = 0.5$
 
@@ -40,39 +42,63 @@ Owing to the sigmoid function, we can intuit that we are looking for line for wh
 ## Logit Link Function
 
 The logit link function can be expressed as follows: 
-$$\begin{align}h_{\theta}(x) &= \frac{1}{1+(e^{-z})}\end{align}$$
+$$
+\begin{aligned}h_{\theta}(x) &= \frac{1}{1+(e^{-z})}\end{aligned}
+$$
 
 Where in an analysis with two predictor variables, $x_1$ and $x_2$:
-$$\begin{align}z &= \theta_0 + \theta_{1}x_{1} + \theta_{2}x_{2} \end{align}$$
+$$
+\begin{aligned}z &= \theta_0 + \theta_{1}x_{1} + \theta_{2}x_{2} \end{aligned}
+$$
 Note: $\theta_n$ represents coefficient for factor $x_n$
 
 ## Algebra
 
 Reminder that the logit link function is: 
-$$\begin{align}h_{\theta}(x) = \frac{1}{1+(e^{-z})}\end{align}$$
+$$
+\begin{aligned}h_{\theta}(x) = \frac{1}{1+(e^{-z})}\end{aligned}
+$$
 We're looking for $h_{\theta}(x) = 0.5$. So that leaves us with:
-$$\begin{align}0.5 &= \frac{1}{1+(e^{-z})}\end{align}$$
+$$
+\begin{aligned}0.5 &= \frac{1}{1+(e^{-z})}\end{aligned}
+$$
 We need to rearrange the equation. First, let's multiply both sides by $1+(e^{-z})$
-$$\begin{align}0.5 \times (1+(e^{-z})) &= 1\end{align}$$
+$$
+\begin{aligned}0.5 \times (1+(e^{-z})) &= 1\end{aligned}
+$$
 Next, multiply by $2$ in order to remove the $0.5 \times\dots$
-$$\begin{align}1+(e^{-z}) &= 2\end{align}$$ 
+$$
+\begin{aligned}1+(e^{-z}) &= 2\end{aligned}
+$$ 
 Minus 1 from each side 
-$$\begin{align}e^{-z} &= 1\end{align}$$
+$$
+\begin{aligned}e^{-z} &= 1\end{aligned}
+$$
 Natural log of each side
-$$\begin{align}-z &= 0\end{align}$$
+$$
+\begin{aligned}-z &= 0\end{aligned}
+$$
 Remember that $z$ is the linear function we saw above. We can plug that back in to get:
-$$\begin{align}0 &= -\theta_0 - \theta_{1}x_{1} - \theta_{2}x_{2}\end{align}$$
+$$
+\begin{aligned}0 &= -\theta_0 - \theta_{1}x_{1} - \theta_{2}x_{2}\end{aligned}
+$$
 Note that we're plugging this in to $-z$, so $+$ becomes $-$
 
 ## How do we plot this?
 
-We need to represent the equation in cartesian space. We already know that we're plotting two factors $x_1$ and $x_2$ against each other. This means that we can use one and the x-axis and the other as the y-axis. Let's say that we want $x_2$ to be the y-axes. We need to represent $0 = -\theta_0 - \theta_{1}x_{1} - \theta_{2}x_{2} $ in terms of $x_2$.
+We need to represent the equation in cartesian space. We already know that we're plotting two factors $x_1$ and $x_2$ against each other. This means that we can use one and the x-axis and the other as the y-axis. Let's say that we want $x_2$ to be the y-axes. We need to represent $0 = -\theta_0 - \theta_{1}x_{1} - \theta_{2}x_{2}$ in terms of $x_2$.
 Start with:
-$$\begin{align}0 &= -\theta_0 - \theta_{1}x_{1} - \theta_{2}x_{2} \end{align}$$
+$$
+\begin{aligned}0 &= -\theta_0 - \theta_{1}x_{1} - \theta_{2}x_{2} \end{aligned}
+$$
 Next, add $\theta_{2}x_{2}$
-$$\begin{align}\theta_{2}x_{2} &= -\theta_0 - \theta_{1}x_{1}\end{align}$$
+$$
+\begin{aligned}\theta_{2}x_{2} &= -\theta_0 - \theta_{1}x_{1}\end{aligned}
+$$
 Then, divide by $\theta_{2}$
-$$\begin{align} x_{2} &= \frac{-\theta_0}{\theta_{2}} - \frac{\theta_{1}}{\theta_{2}}x_{1}\end{align}$$
+$$
+\begin{aligned} x_{2} &= \frac{-\theta_0}{\theta_{2}} - \frac{\theta_{1}}{\theta_{2}}x_{1}\end{aligned}
+$$
 
 You may have noticed that this equation is in the form $y = mx + b$ - a linear equation -, or $ y=b+mx$ in this case. That means we can use our coefficients and axes to plot the linear boundary.
 
@@ -104,10 +130,14 @@ vowel_coefs <- coef(vowel_model)
 ```
 
 Now that we have the model, we calculate the coefficients. Remember our function from the previous section:
-$$\begin{align} x_{2} &= \frac{-\theta_0}{\theta_{2}} - \frac{\theta_{1}}{\theta_{2}}x_{1}\end{align}$$
+$$
+\begin{aligned} x_{2} &= \frac{-\theta_0}{\theta_{2}} - \frac{\theta_{1}}{\theta_{2}}x_{1}\end{aligned}
+$$
 
 We've coded `duration` as $x_1$ and `f2f1` as $x_2$. Also, remember that $\theta$ represents our corresponding coefficients. This leaves us with the equation:
-$$\begin{align}{f2f1} = \frac{-{(Intercept)}}{{f2f1\_coefficient}} - \frac{{duration\_coefficient}}{{f2f1\_coefficient}}{duration}\end{align}$$
+$$
+\begin{aligned}{f2f1} = \frac{-{(Intercept)}}{{f2f1\_coefficient}} - \frac{{duration\_coefficient}}{{f2f1\_coefficient}}{duration}\end{aligned}
+$$
 
 To calculate these in R:
 
@@ -120,7 +150,9 @@ boundary_slope <- -vowel_coefs[2]/vowel_coefs[3]
 ```
 
 Plugging them into the equation:
-$$\begin{align}y = {intercept} + {slope}\times x\end{align}$$
+$$
+\begin{aligned}y = {intercept} + {slope}\times x\end{aligned}
+$$
 
 So we plot it, along with the datapoints as follows:
 
@@ -135,8 +167,6 @@ vowel_plot <- ggplot(vowel_data, aes(x=duration, y=f2f1)) +
   labs(title="A Spectral Vowel Contrast", colour="Vowel", x="Duration (ms)", y="F2 - F1")
 vowel_plot
 ```
-
-Of course, we still need to pretty it up with labels and titles, but this demonstrates the method.
 
 For this dataset, our decision boundary is very flat. This is expected, as we used the same input for the duration distribution, whilst changing the formants. Let's do the same with a contrast that varies on both cues.
 
